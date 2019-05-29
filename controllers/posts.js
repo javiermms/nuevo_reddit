@@ -2,7 +2,7 @@ const Post = require('../models/post');
 
 module.exports = app => {
 
-    //INDEX (SHOW POSTS)
+    //INDEX (SHOW ALL POSTS)
     app.get('/', (req, res) => {
         Post.find({})
         .then(posts => {
@@ -28,5 +28,18 @@ module.exports = app => {
         return res.redirect(`/`);
         })
     });
+
+
+    //SHOW (INDIVISUAL POST)
+    app.get("/posts/:id", function(req, res) {
+        // LOOK UP THE POST
+        Post.findById(req.params.id)
+          .then(post => {
+            res.render("posts-show", { post });
+          })
+          .catch(err => {
+            console.log(err.message);
+          });
+      });
 
 };
