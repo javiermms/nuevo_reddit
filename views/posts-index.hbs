@@ -1,0 +1,16 @@
+<h1>You can do this!</h1>
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <ul>
+            {{#each posts}}
+                <li class="list-group-item">
+                    <div class="lead">{{this.title}}</div>
+                    <a href="{{this.url}}" target="_blank">{{this.url}}</a>
+                    <h6>Created at: {{this.createdAt}}</h6>
+                    <h6>Updated at: {{this.updatedAt}}</h6> 
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

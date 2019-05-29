@@ -17,12 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Use Express Validator
 app.use(expressValidator());
 
-//INDEX
-app.get('/', (req, res) => {
-    res.render('index', {});
-});
-
-
 require('./controllers/posts.js')(app);
 require('./data/nuevo-reddit-db');
 

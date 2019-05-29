@@ -2,6 +2,17 @@ const Post = require('../models/post');
 
 module.exports = app => {
 
+    //INDEX (SHOW POSTS)
+    app.get('/', (req, res) => {
+        Post.find({})
+        .then(posts => {
+            res.render("posts-index", { posts });
+        })
+        .catch(err => {
+            console.log(err.message);
+        });
+    });
+
     //NEW POST FORM
     app.get('/posts/new', (req, res) => {
         res.render('posts-new', {});
@@ -17,4 +28,5 @@ module.exports = app => {
         return res.redirect(`/`);
         })
     });
+
 };
