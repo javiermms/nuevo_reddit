@@ -21,3 +21,5 @@ require('./controllers/posts.js')(app);
 require('./data/nuevo-reddit-db');
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
+
+module.exports = app;
