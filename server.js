@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 
 require('./controllers/posts.js')(app);
+require('./controllers/comments.js')(app);
 require('./data/nuevo-reddit-db');
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
