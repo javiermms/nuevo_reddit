@@ -1,3 +1,4 @@
+require('dotenv').config();
 var exphbs = require('express-handlebars');
 const express = require('express')
 const Post = require('./models/post');
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Use Express Validator
 app.use(expressValidator());
 
+require('./controllers/auth.js')(app);
 require('./controllers/posts.js')(app);
 require('./controllers/comments.js')(app);
 require('./data/nuevo-reddit-db');
