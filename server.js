@@ -1,4 +1,6 @@
 require('dotenv').config();
+var cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 var exphbs = require('express-handlebars');
 const express = require('express')
 const Post = require('./models/post');
@@ -6,6 +8,9 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const app = express()
 const port = 3000
+
+//Cookie Parser
+app.use(cookieParser());
 
 // Handlebars
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs'}));
@@ -17,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Use Express Validator
 app.use(expressValidator());
+
+
 
 require('./controllers/auth.js')(app);
 require('./controllers/posts.js')(app);
