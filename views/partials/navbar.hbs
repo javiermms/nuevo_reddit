@@ -5,9 +5,14 @@
     Reddit
   </a>
   
-  <a href="/logout">Logout</a>
-  <a href="/login">Login</a>
-  <a href="/sign-up">Sign Up</a>
+  {{#if currentUser}}
+    <a href="/logout">Logout</a>
+  {{else}}
+    <a href="/login">Login</a>
+    <a href="/sign-up">Sign Up</a>
+  {{/if}}
 
-  <a href="/posts/new" class="btn btn-primary navbar-btn">New Post</a>
+  {{#if currentUser}}
+    <a href="/posts/new" class="btn btn-primary navbar-btn">New Post</a>
+  {{/if}}
 </nav>
